@@ -43,7 +43,7 @@ blocks.forEach((row, y) => {
     row.forEach((value, x) => {
         // if value is not zero we draw square
         if (value !== 0) {
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = 'blue';
             ctx.fillRect(x + offset.x, // offset will allow us to move the blocks later
                          y + offset.y, 
                          1, 1);
