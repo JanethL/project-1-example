@@ -1,7 +1,7 @@
 const canvas = document.getElementById('tetris');
 const ctx = canvas.getContext('2d');
 const button = document.getElementById('start');
-const restartButton = document.getElementById('restart');
+const resetButton = document.getElementById('reset');
 ctx.scale(20,20); // used to scale everything on canvas by 20
 
 
@@ -12,12 +12,14 @@ button.addEventListener('click', () => {
         //we remove button to prevent another block to be rendered
         button.style.display = 'none';
 
-restartButton.addEventListener('click', () => {
+resetButton.addEventListener('click', () => {
     console.log("clicked!") // check  to see if eventListener is working
-    const clearCanvas = function () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}; 
-    clearCanvas();
+    location.reload();
+    return false
+//     // const clearCanvas = function () {
+//     // ctx.clearRect(0, 0, canvas.width, canvas.height);
+// }; 
+//     clearCanvas();
 })
      
 const blocks =[
@@ -52,6 +54,7 @@ blocks.forEach((row, y) => {
 });
 }
 
+
 //500 milliseconds (.5 sec) to drop the piece one step
 let dropCounter = 0;
 let dropInterval = 500;
@@ -78,13 +81,30 @@ function update(time = 0) { //drop the blocks using the requestAnimationFrame by
     requestAnimationFrame(update);
 }
 
-
 // we add our player with a position and block
 const player = {
     pos: {x: 5, y: 5},
     blocks: blocks,
 }
 
+function collide (field, player){
+
+    for (let y = 0; y < player.pos.blocks.length; y++){
+
+        for (let x = 0; x < player.pos.blocks[y].length; x++){
+
+            if(player.pos.blocks[y][x] !==0 &&
+
+                (field[y + player.pos.blocks.y][x + player.pos.blocks.x]) !== 0){
+                    return true;
+        }
+    
+    }
+}
+return false;
+}
+
+console.log(function collide(field, player));
 // use the following EventListener to find key codes
 // document.addEventListener('keydown', e =>{
 //     console.log(e);
@@ -100,6 +120,7 @@ document.addEventListener('keydown', e => {
     }
 });
 
-update();
 
+
+update();
 })});
