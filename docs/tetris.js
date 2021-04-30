@@ -16,12 +16,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         
     })
 
-const blocks =[
+    
+
+const blocks = [
     //we include four rows to make rotation easier
     [0, 0, 0],
-    [1, 1, 1],
-    [0, 1, 0],
+    [0, 1, 1],
+    [1, 1, 0],
 ];
+
 //convert rows into coloumns and reverse the rows
 function rotate(blocks, control) {
     for (let y = 0; y < blocks.length; y++ ){
@@ -226,6 +229,7 @@ document.addEventListener('keydown', e => {
  }
  console.log(field); console.table(field);
 });
+
 
 
 update(); //we start the game with update
