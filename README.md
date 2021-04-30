@@ -16,7 +16,9 @@ To play Tetris online visit: https://janethl.github.io/project-1-example/
 ## Start Up Screen:
 Press the start button to begin playing! 
 
-<img src="docs/img/startScreen.png" width="400">
+<img src="docs/img/startScreen.png" width="600">
+
+The reset game will restart your game and set your score to zero. 
 
 # HOW TO INSTALL
 
