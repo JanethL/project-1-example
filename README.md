@@ -67,7 +67,7 @@ blocks.forEach((row, y) => {
 }
 ```
 
-//I added a function draw() to draw game continuosly 
+// I added a function draw() to draw game continuosly 
 
 ```javascript
 //create blocks using function draw () that passes our player position and blocks to update  game constantly
@@ -80,7 +80,6 @@ function draw (){
 }
 
 ```
-
 // Our update() function starts our game this function calls draw() and uses requestAnimationFrame()
 //requestAnimationFrame() tells the browser to perform an animation and requests that the browser call a function to update an animation before the next repaint
 
@@ -150,13 +149,143 @@ function join(field, player){
 }
 ```
 //our collide() function we’re checking to see where our squares on our field are not zero then they collide
- 
-//Keyboard Controls. Set an event listener for whenever our arrows and and Keys A& D are clicked
+```javascript 
+
+// create a collision detect function 
+function collide(field, player){
+    //assign the bocks and position to variable b & o, saving the position of block 
+    const b = player.blocks;
+    const o = player.pos; 
+    //iterate over the players "blocks" position
+    // create for loop to loop over y (rows)
+    for(let y = 0; y < b.length; y++){
+            //create for loop to loop over x
+        for(let x = 0; x < b[y].length; x++){
+            // iterate over players block, if the blocks position of player is not zero and  
+            if(b[y][x] !== 0 && //if the players blocks y row and x column is not zero (they collide)
+                (field[y + o.y] && // and if fields row exist, if it doesn't exist it will count as collision 
+                field[y + o.y][x + o.x]) !== 0){ //if it exist grab the child and if they are not zero (they collide) so return true
+                    return true; // return true if the  conditions are not equal to zero, meaning that they have an x or y position
+
+                }
+                    
+        }
+    }
+    return false; // if they are zero they don't collide 
+}
+```
+
+// Now that we have a collide() function we can use it within our key controls as a function that drops the player's block
+//Keyboard Controls: Set an event listener for whenever our arrows and and Keys A& D are clicked
+
+```javascript
+
+// use the following EventListener to find key codes
+// document.addEventListener('keydown', e =>{
+//     console.log(e);
+// })
+document.addEventListener('keydown', e => {
+    if (e.keyCode === 37) {   // left arrow
+        function playerMove(control){
+            player.pos.x += control;
+        if (collide(field, player)){ 
+            player.pos.x -= control; // this is moving our player -one  if it's colliding, 
+        }};
+        playerMove(-1);   //move left one
+
+    } else if (e.keyCode === 39){ 
+        function playerMove(control){
+            player.pos.x += control; // take players position x and move + 1 to the right
+        if (collide(field, player)){ // if they collide
+            player.pos.x -= control;
+        }};
+        playerMove(+1); //move right one
+    } else if (e.keyCode === 40){
+        player.pos.y++; 
+        if (collide(field, player)){ //collide means block touches the bottom of screen or another block
+            player.pos.y--;  // if collide then move block player back up
+            join(field, player);
+            player.pos.y = -2; // set player's block to the top to start over 
+        }
+                dCounter = 0;
+
+    } else if (e.keyCode === 65 ){ //set keys Q and W to rotate our blocks
+        const pos = player.pos.x;
+        let offset = 1; 
+        function playerRotate(control){
+            rotate(player.blocks, control);
+           }
+           playerRotate(+1);
+         while(collide(field, player)){  //rotating blocks exits the canvas walls unless  collison is checked every roatation
+             player.pos.x += offset; 
+             offset = -(offset + (offset > 0 ? 1 : -1));
+             if(offset > player.blocks[0].length){
+                 rotate(player.blocks, control);
+                player.pos.x = pos; 
+                return;
+         }
+    }
+    
+}  else if (e.keyCode === 68){
+    const pos = player.pos.x;
+    let offset = 1; 
+    function playerRotate(control){
+         rotate(player.blocks, control);
+        }
+        playerRotate(-1);// if the block collides then move players block by one
+     while(collide(field, player)){  // rotating our blocks it exits the canvas walls; check collison everytime rotate
+         player.pos.x += offset; 
+         offset = -(offset + (offset > 0 ? 1 : -1)); //
+         if(offset > player.blocks[0].length){
+             rotate(player.blocks, control);
+            player.pos.x = pos; 
+            return;
+        }
+    }
+ }
+ console.log(field); console.table(field);
+});
+```
 
 //in playerMove() we use our collide() function to check if our pieces collide with the field or other pieces 
 
-//rotate() function is taking our rows annd converting them into columns 
+```javascript
+    if (e.keyCode === 37) {   // left arrow
+        function playerMove(control){
+            player.pos.x += control;
+        if (collide(field, player)){ 
+            player.pos.x -= control; // this is moving our player -one  if it's colliding, 
+        }};
+        playerMove(-1);   //move left one
 
+```
+
+//rotate() function is taking our rows annd converting them into columns 
+```javascript 
+//convert rows into coloumns and reverse the rows
+function rotate(blocks, control) {
+    for (let y = 0; y < blocks.length; y++ ){
+        for(let x = 0; x < y; x++){
+            [
+                blocks[x][y],
+                blocks[y][x],
+
+            ] = [
+                blocks[y][x],
+                blocks[x][y],
+            ];
+
+        }
+    }
+    if (control > 0){
+        blocks.forEach(row => row.reverse());
+    } else {
+        blocks.reverse();
+    }
+}
+
+
+```
 
 
 # FUTURE CONSIDERATIONS
