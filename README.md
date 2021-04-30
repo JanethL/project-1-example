@@ -45,6 +45,7 @@ const blocks = [
 ```
 
 // Created a function drawBlocks() to draw the first block
+
 // Used forEach and Loops to draw the the squares that aren’t zero 
 
 
