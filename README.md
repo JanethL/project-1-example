@@ -1,13 +1,21 @@
-# Title of Game
+# Tetris Challenge Part 1
 
-Explanation of the game that was built and the deployed link will go here.
+In this guide, I will walk you through building the first part of a tetris game. We will apply our learnings from the first two weeks of General Assembly's Software Engineering Immersive program. 
 
-# HOW TO PLAY
+ 
+# HOW TO PLAY 
+This is a very simple game to play. The only required controls are the following:
 
-How to play the game goes here
+**Left and Right arrow:** Moves the block left or right
+**Down Arrow:** Accelerates the block's fall
+**A & D Key:** Rotates the block
+
+To play Tetris online visit: https://janethl.github.io/project-1-example/
 
 ## Start Up Screen:
-Images of the start up screen go here 
+Press the start button to begin playing! 
+
+<img src="https://imgur.com/67vey3S" width= "400">
 
 # HOW TO INSTALL
 
@@ -16,12 +24,9 @@ Images of the start up screen go here
 2. Open `index.html` in your browser to play or 
 3. Open the directory in your text editor of choice to view or edit the code
 
-Other install instructions will go here
-
 
 # HOW IT WORKS
-How the game works will go here
-Code snippets go here
+```javascript  ```
 
 
 # FUTURE CONSIDERATIONS
