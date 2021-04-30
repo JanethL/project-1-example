@@ -45,7 +45,6 @@ const blocks = [
 ```
 
 // Created a function drawBlocks() to draw the first block
-
 // Used forEach and Loops to draw the the squares that aren’t zero 
 
 
@@ -125,8 +124,31 @@ let lastTime = 0;
 // we create our field by passing in a width of 12 and height of 22 into our function createBlocks()
 createBlocks()
 
-// join() function is where join or print our players position to the field that we built. It copies the players position into the field.
+```javascript
 
+const field = createBlocks(12, 20); //12 squares wide and 20 height 
+// console.log(field); console.table(field);
+// add  player with a position and block
+const player = {
+    pos: {x: 5, y:-2},
+    blocks: blocks,
+}
+
+```
+
+// join() function is where join or print our players position to the field that we built. It copies the players position into the field.
+```javascript
+function join(field, player){
+    player.blocks.forEach((row, y) => { // pull row and y index from the player's block 
+        row.forEach((value, x) => { //iterate over row to get value and x index
+            if (value !== 0) { //ignore zero values
+                field[y + player.pos.y][x + player.pos.x] = value; //copy the values into the field 
+            }
+        });
+    });
+
+}
+```
 //our collide() function we’re checking to see where our squares on our field are not zero then they collide
  
 //Keyboard Controls. Set an event listener for whenever our arrows and and Keys A& D are clicked
