@@ -4,6 +4,8 @@ const button = document.getElementById('start');
 const resetButton = document.getElementById('reset');
 ctx.scale(20,20); // used to scale everything on canvas by 20
 
+
+//add event listener to start button so that when clicked the game is rendered 
 document.addEventListener("DOMContentLoaded", function (e) {
     button.addEventListener('click', () => {
             //we remove button to prevent another block to be rendered
