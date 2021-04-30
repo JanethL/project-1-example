@@ -4,9 +4,10 @@ body {
     text-align: center;
     background-size: cover;
     background-repeat: space;
+    
 }
 
-h1, h2, h3, h4{
+h2, h3, h4{
     font-family: 'Press Start 2P', monospace;
     color: white;
   }
@@ -21,12 +22,22 @@ h1, h2, h3, h4{
 
     font-family: 'Press Start 2P', monospace;
     color: white;
+
 }
 
-#start-button {
-    background-color: red;
-    
+#start {
+    background-color: blue;
+    color: white;
+    padding: .5em;
+    margin: 5px 0px 10px 0px;
+    font-family: 'Press Start 2P', monospace;
+
 }
-#button-container{
-    text-align: center;
+
+#reset{
+    background-color: red;
+    color: white;
+    padding: .5em;
+    margin: 0px 0px 25px 0px;
+    font-family: 'Press Start 2P', monospace;
 }
