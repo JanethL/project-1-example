@@ -31,14 +31,14 @@ Press the start button to begin playing!
 
 # FUTURE CONSIDERATIONS
 
--Create 6 more blocks with if statements
--Create a function to randomly select a block
--Add colors to blocks 
--Need to add a game over screen
--Count filled rows using a for loop and clear rows once full
--Add a function that updates the score 
--Add styling to buttons
--Add SMS functionality with API to challenge friends to beat high score a game 
+- Create 6 more blocks with if statements
+- Create a function to randomly select a block
+- Add colors to blocks 
+- Need to add a game over screen
+- Count filled rows using a for loop and clear rows once full
+- Add a function that updates the score 
+- Add styling to buttons
+- Add SMS functionality with API to challenge friends to beat high score a game 
 
 
 # PROCESS WORK
