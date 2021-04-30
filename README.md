@@ -16,11 +16,10 @@ To play Tetris online visit: https://janethl.github.io/project-1-example/
 ## Start Up Screen:
 Press the start button to begin playing! 
 
-![Start Screen](https://imgur.com/67vey3S)
+![Start Screen]("https://imgur.com/67vey3S")
 
 # HOW TO INSTALL
 
-## Example
 1. *`Fork`* and *`Clone`* this respository to your local machine
 2. Open `index.html` in your browser to play or 
 3. Open the directory in your text editor of choice to view or edit the code
@@ -32,7 +31,14 @@ Press the start button to begin playing!
 
 # FUTURE CONSIDERATIONS
 
-Future considerations or stretch goals go here.
+-Create 6 more blocks with if statements
+-Create a function to randomly select a block
+-Add colors to blocks 
+-Need to add a game over screen
+-Count filled rows using a for loop and clear rows once full
+-Add a function that updates the score 
+-Add styling to buttons
+-Add SMS functionality with API to challenge friends to beat high score a game 
 
 
 # PROCESS WORK
