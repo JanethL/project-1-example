@@ -6,16 +6,16 @@ In this guide, I will walk you through building the first part of a tetris game.
 # HOW TO PLAY 
 This is a very simple game to play. The only required controls are the following:
 
-**Left and Right arrow:** Moves the block left or right
-**Down Arrow:** Accelerates the block's fall
-**A & D Key:** Rotates the block
+-**Left and Right arrow:** Moves the block left or right
+-**Down Arrow:** Accelerates the block's fall
+-**A & D Key:** Rotates the block
 
 To play Tetris online visit: https://janethl.github.io/project-1-example/
 
 ## Start Up Screen:
 Press the start button to begin playing! 
 
-<img src="https://imgur.com/67vey3S" width= "400">
+![alt text]("https://imgur.com/67vey3S")
 
 # HOW TO INSTALL
 
