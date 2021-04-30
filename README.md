@@ -16,7 +16,7 @@ To play Tetris online visit: https://janethl.github.io/project-1-example/
 ## Start Up Screen:
 Press the start button to begin playing! 
 
-<img src="./images/startScreen.png" width="400">
+<img src="/img/startScreen.png" width="400">
 
 # HOW TO INSTALL
 
