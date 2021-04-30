@@ -28,6 +28,81 @@ The reset game will restart your game and set your score to zero.
 
 
 # HOW IT WORKS
+
+
+Steps:
+
+// Picked one block piece to start off drawing the entire structure and functions of game
+// Blocks are built using an array of arrays and filling them in with 0’s and one’s
+
+```javascript
+const blocks = [
+    //include four rows to make rotation easier
+    [0, 0, 0],
+    [0, 1, 1],
+    [1, 1, 0],
+];
+```
+
+// Created a function drawBlocks() to draw the first block
+// Used forEach and Loops to draw the the squares that aren’t zero 
+
+
+```javascript
+
+function drawBlocks(blocks, offset){
+//use .forEach method to iterate over every row and y index 
+blocks.forEach((row, y) => {
+    //grab the value and x index 
+    row.forEach((value, x) => {
+        // if value is not zero we draw the square
+        if (value !== 0) {
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(x + offset.x, // offset will allow us to move the blocks later
+                         y + offset.y, 
+                         1, 1);
+        }
+    });
+});
+}
+```
+
+//I added a function  draw() to draw game continuosly 
+
+```javascript
+//create blocks using function draw () that passes our player position and blocks to update  game constantly
+function draw (){
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    drawBlocks(field, {x:0, y:0}); //draw the squares inside zero's that are being populated as block sets`console.log(field)`
+    drawBlocks(player.blocks, player.pos); 
+}
+
+```
+
+// Our update() function starts our game this function calls draw() and uses requestAnimationFrame()
+//requestAnimationFrame() tells the browser to perform an animation and requests that the browser call a specified function to update an animation before the next repaint
+
+// we have a dropCounter variable that we default to 0 whenever we need to move our piece back to top
+
+//we have a dropInterval set to 500 milliseconds so our pices drop every 1/2 a second
+
+// we create our field by passing in a width of 12 and height of 22 into our function createBlocks()
+createBlocks()
+
+// join() function is where join or print our players position to the field that we built. It copies the players position into the field.
+
+//our collide() function we’re checking to see where our squares on our field are not zero then they collide
+ 
+//Keyboard Controls. Set an event listener for whenever our arrows and and Keys A& D are clicked
+
+//in playerMove() we use our collide() function to check if our pieces collide with the field or other pieces 
+
+//rotate() function is taking our rows annd converting them into columns 
+
+
+
 ```javascript  
 const canvas = document.getElementById('tetris'); //access canvas
 const ctx = canvas.getContext('2d');
