@@ -43,8 +43,8 @@ const blocks = [
 ];
 ```
 
-// Create a function drawBlocks() to draw the first block
-// Use forEach and Loops to draw the the squares that aren’t zero 
+- Create a drawBlocks() function to draw the first block
+- Use forEach and Loops to draw the the squares that aren’t zero 
 
 
 ```javascript
@@ -66,7 +66,7 @@ blocks.forEach((row, y) => {
 }
 ```
 
-// add a function draw() to draw game continuosly 
+- add a draw() function to draw game continuosly 
 
 ```javascript
 //create blocks using function draw() that passes our player position and blocks to update game constantly
@@ -79,7 +79,7 @@ function draw (){
 }
 
 ```
-// create an update() function to start the game; this uodate() function calls the draw() function and uses requestAnimationFrame()
+- create an update() function to start the game; this uodate() function calls the draw() function and uses requestAnimationFrame()
 
 ```javascript
 
@@ -106,8 +106,8 @@ function update(time = 0) { //drop the blocks using the requestAnimationFrame() 
 }
 
 ```
-//add dropCounter variable that we default to 0 whenever we need to move our piece back to top
-//add a dropInterval set to 500 milliseconds so our pices drop every 1/2 a second
+- add dropCounter variable that we default to 0 whenever we need to move our piece back to top
+- add a dropInterval set to 500 milliseconds so our pices drop every 1/2 a second
 
 ```javascript
 //500 milliseconds (.5 sec) to drop the piece one step
@@ -118,8 +118,7 @@ let dropInterval = 500;
 let lastTime = 0; 
 ```
 
-// create a field by passing in a width of 12 and height of 20 into our function createBlocks()
-createBlocks()
+- create a field by passing in a width of 12 and height of 20 into our function createBlocks()
 
 ```javascript
 
@@ -132,7 +131,7 @@ const player = {
 }
 
 ```
-// create a join() function to print player's block position to the field. It copies the players position into the field.
+- create a join() function to print player's block position to the field. It copies the players position into the field
 
 ```javascript
 function join(field, player){
@@ -146,7 +145,7 @@ function join(field, player){
 
 }
 ```
-//create a collide() function to check where our squares on our field are not zero, if they aren't zero (they collide) return true.
+- create a collide() function to check where our squares on our field are not zero, if they aren't zero (they collide) return true, else return false
 
 ```javascript 
 
@@ -174,8 +173,9 @@ function collide(field, player){
 }
 ```
 
-// Now that we have a collide() function we can use it within our key controls as a function that drops the player's block
-//Keyboard Controls: Set an event listener for whenever our arrows and and Keys A& D are clicked
+- keyboard Controls: set an event listener for whenever our arrows and and A & D keys are clicked
+- use the collide function within key controls to drop the player's block
+
 
 ```javascript
 
@@ -246,7 +246,7 @@ document.addEventListener('keydown', e => {
 });
 ```
 
-//in playerMove() use the collide() function to check if the pieces collide with the field or other pieces 
+- create a playerMove() function that calls collide() function to check if the pieces collide with the field or other pieces 
 
 ```javascript
     if (e.keyCode === 37) {   // left arrow
@@ -259,7 +259,7 @@ document.addEventListener('keydown', e => {
 
 ```
 
-//rotate() function is taking our rows annd converting them into columns 
+-create a rotate() function that takes the rows annd converts them into columns 
 
 ```javascript 
 //convert rows into coloumns and reverse the rows
