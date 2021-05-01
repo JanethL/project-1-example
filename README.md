@@ -29,11 +29,10 @@ The reset game will restart your game and set your score to zero.
 
 # HOW IT WORKS
 
-
 Steps:
 
-// Picked one block piece to start off drawing the entire structure and functions of game
-// Blocks are built using an array of arrays and filling them in with 0’s and one’s
+- Pick one block piece to start drawing the skeleton of the game
+- Blocks are built using an array of arrays and filling them in with 0s and ones
 
 ```javascript
 const blocks = [
@@ -44,8 +43,8 @@ const blocks = [
 ];
 ```
 
-// Created a function drawBlocks() to draw the first block
-// Used forEach and Loops to draw the the squares that aren’t zero 
+// Create a function drawBlocks() to draw the first block
+// Use forEach and Loops to draw the the squares that aren’t zero 
 
 
 ```javascript
@@ -67,10 +66,10 @@ blocks.forEach((row, y) => {
 }
 ```
 
-// I added a function draw() to draw game continuosly 
+// add a function draw() to draw game continuosly 
 
 ```javascript
-//create blocks using function draw () that passes our player position and blocks to update  game constantly
+//create blocks using function draw() that passes our player position and blocks to update game constantly
 function draw (){
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -80,8 +79,7 @@ function draw (){
 }
 
 ```
-// Our update() function starts our game this function calls draw() and uses requestAnimationFrame()
-//requestAnimationFrame() tells the browser to perform an animation and requests that the browser call a function to update an animation before the next repaint
+// create an update() function to start the game; this uodate() function calls the draw() function and uses requestAnimationFrame()
 
 ```javascript
 
@@ -108,8 +106,8 @@ function update(time = 0) { //drop the blocks using the requestAnimationFrame() 
 }
 
 ```
-// we have a dropCounter variable that we default to 0 whenever we need to move our piece back to top
-//we have a dropInterval set to 500 milliseconds so our pices drop every 1/2 a second
+//add dropCounter variable that we default to 0 whenever we need to move our piece back to top
+//add a dropInterval set to 500 milliseconds so our pices drop every 1/2 a second
 
 ```javascript
 //500 milliseconds (.5 sec) to drop the piece one step
@@ -120,7 +118,7 @@ let dropInterval = 500;
 let lastTime = 0; 
 ```
 
-// we create our field by passing in a width of 12 and height of 22 into our function createBlocks()
+// create a field by passing in a width of 12 and height of 20 into our function createBlocks()
 createBlocks()
 
 ```javascript
@@ -134,8 +132,8 @@ const player = {
 }
 
 ```
+// create a join() function to print player's block position to the field. It copies the players position into the field.
 
-// join() function is where join or print our players position to the field that we built. It copies the players position into the field.
 ```javascript
 function join(field, player){
     player.blocks.forEach((row, y) => { // pull row and y index from the player's block 
@@ -148,7 +146,8 @@ function join(field, player){
 
 }
 ```
-//our collide() function we’re checking to see where our squares on our field are not zero then they collide
+//create a collide() function to check where our squares on our field are not zero, if they aren't zero (they collide) return true.
+
 ```javascript 
 
 // create a collision detect function 
@@ -247,7 +246,7 @@ document.addEventListener('keydown', e => {
 });
 ```
 
-//in playerMove() we use our collide() function to check if our pieces collide with the field or other pieces 
+//in playerMove() use the collide() function to check if the pieces collide with the field or other pieces 
 
 ```javascript
     if (e.keyCode === 37) {   // left arrow
@@ -261,6 +260,7 @@ document.addEventListener('keydown', e => {
 ```
 
 //rotate() function is taking our rows annd converting them into columns 
+
 ```javascript 
 //convert rows into coloumns and reverse the rows
 function rotate(blocks, control) {
