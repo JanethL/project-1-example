@@ -306,5 +306,22 @@ function rotate(blocks, control) {
 Initial Wireframes go here ( images )
 
 ## Scratch Work:
+-Dropping the pieces: 
 
+```// drop the piece every 1sec
+
+let dropStart = Date.now();
+let gameOver = false;
+function drop(){
+
+    let now = Date.now();
+    let delta = now - dropStart;
+    if(delta > 1000){
+        player.pos.y++; 
+        if (collide(field, player)){ //collide means block touches the bottom of screen or another block
+            player.pos.y--;  // if collide then move block player back up
+            join(field, player);
+            player.pos.y = -2; // set player's block to the top to start over 
+        }
+        dropStart = Date.now();``` 
 Scratch Work goes here
